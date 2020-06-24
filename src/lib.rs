@@ -44,7 +44,9 @@ struct Worker {
 
 impl Worker {
     fn new(id: usize, receiver: mpsc::Receiver<Job>) -> Worker {
-        let thread = thread::spawn(|| {});
+        let thread = thread::spawn(|| {
+            receiver;
+        });
         Worker { id, thread }
     }
 }
